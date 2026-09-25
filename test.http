@@ -1,0 +1,176 @@
+@token = eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc5MDI2MzIzNSwiZXhwIjoxNzkwMzQ5NjM1fQ.c9NOUBeH9V0ihAr2lfR5VxGCobIyo1KnpornJkQmAUo
+
+### EXPENSES
+
+POST http://localhost:8080/api/expenses
+Content-Type: application/json
+
+{
+  "description": "Lunch",
+  "amount": 150,
+  "category": "Food"
+}
+
+###
+GET http://localhost:8080/api/expenses
+
+###
+GET http://localhost:8080/api/expenses
+Authorization: Bearer {{token}}
+
+###
+DELETE http://localhost:8080/api/expenses/1
+Authorization: Bearer {{token}}
+
+###
+PUT http://localhost:8080/api/expenses/2
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "description": "Bus Ticket Updated",
+  "amount": 60,
+  "category": "Transport"
+}
+
+###
+POST http://localhost:8080/api/expenses
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "description": "Invalid Test",
+  "amount": -100,
+  "category": "Food"
+}
+###
+POST http://localhost:8080/api/expenses
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "description": "Validation Test",
+  "amount": 100,
+  "category": "Food"
+}
+
+
+### INCOME
+
+POST http://localhost:8080/api/income
+Content-Type: application/json
+
+{
+  "source": "Salary",
+  "amount": 30000
+}
+
+###
+GET http://localhost:8080/api/income
+Authorization: Bearer {{token}}
+
+###
+DELETE http://localhost:8080/api/income/1
+Authorization: Bearer {{token}}
+
+###
+POST http://localhost:8080/api/income
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "source": "Freelance",
+  "amount": 5000
+}
+
+###
+PUT http://localhost:8080/api/income/2
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "source": "Freelance Updated",
+  "amount": 7000
+}
+
+###
+POST http://localhost:8080/api/income
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "source": "Invalid Test",
+  "amount": -500
+}
+
+
+### BUDGETS
+
+POST http://localhost:8080/api/budgets
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "month": "September 2026",
+  "amount": 20000
+}
+
+###
+GET http://localhost:8080/api/budgets
+Authorization: Bearer {{token}}
+
+###
+PUT http://localhost:8080/api/budgets/1
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "month": "September 2026",
+  "amount": 25000
+}
+
+###
+DELETE http://localhost:8080/api/budgets/1
+Authorization: Bearer {{token}}
+
+###
+POST http://localhost:8080/api/budgets
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "month": "September 2026",
+  "amount": -1000
+}
+
+
+### USERS
+
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+  "name": "John",
+  "email": "john@example.com",
+  "password": "123456"
+}
+
+###
+GET http://localhost:8080/api/users/john@example.com
+Authorization: Bearer {{token}}
+
+###
+POST http://localhost:8080/api/users/login?email=alice@example.com&password=mypassword123
+
+###
+POST http://localhost:8080/api/users/register
+Content-Type: application/json
+
+{
+  "name": "Alice",
+  "email": "alice@example.com",
+  "password": "mypassword123"
+}
+
+###
+POST http://localhost:8080/api/users/login?email=alice@example.com&password=mypassword123
